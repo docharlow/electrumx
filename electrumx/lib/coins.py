@@ -1903,6 +1903,8 @@ class Zumycoin(Coin):
     GENESIS_HASH = ('0000a1df5d2885908898ea64db0a0f89'
                     '3a5752beafad0e5503e4c22fe6a090a2')
     DESERIALIZER = lib_tx.DeserializerSegWit
+    TX_COUNT = 32271
+    TX_COUNT_HEIGHT = 32271	
     TX_PER_BLOCK = 4
     RPC_PORT = 31051
 
