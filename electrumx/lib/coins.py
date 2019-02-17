@@ -1907,6 +1907,9 @@ class Zumycoin(Coin):
     TX_COUNT_HEIGHT = 32271	
     TX_PER_BLOCK = 4
     RPC_PORT = 31051
+    SESSIONCLS = DashElectrumX
+    DAEMON = daemon.DashDaemon
+	
 
 
 class BitcoinAtom(Coin):
