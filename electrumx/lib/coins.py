@@ -1883,6 +1883,7 @@ class GameCredits(Coin):
     WIF_BYTE = bytes.fromhex("a6")
     GENESIS_HASH = ('91ec5f25ee9a0ffa1af7d4da4db9a552'
                     '228dd2dc77cdb15b738be4e1f55f30ee')				
+    DESERIALIZER = lib_tx.DeserializerSegit
     DESERIALIZER = lib_tx.DeserializerSegWit
     TX_COUNT = 316796
     TX_COUNT_HEIGHT = 2040250
@@ -1898,7 +1899,7 @@ class Zumycoin(Coin):
     XPUB_VERBYTES = bytes.fromhex("0488b21e")
     XPRV_VERBYTES = bytes.fromhex("0488ade4")
     P2PKH_VERBYTE = bytes.fromhex("50")
-    P2SH_VERBYTES = [bytes.fromhex("A")]
+    P2SH_VERBYTES = [bytes.fromhex("0A")]
     WIF_BYTE = bytes.fromhex("8C")
     GENESIS_HASH = ('0000a1df5d2885908898ea64db0a0f89'
                     '3a5752beafad0e5503e4c22fe6a090a2')
