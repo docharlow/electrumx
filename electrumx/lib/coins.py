@@ -1910,10 +1910,10 @@ class Zumycoin(Coin):
     SESSIONCLS = DashElectrumX
     DAEMON = daemon.DashDaemon
 
-class Zumycoin(Coin):
-    NAME = "Zumycoin"
+class HZumycoin(Coin):
+    NAME = "HZumycoin"
     SHORTNAME = "ZMY"
-    NET = "hashnet"
+    NET = "mainnet"
     XPUB_VERBYTES = bytes.fromhex("0488b21e")
     XPRV_VERBYTES = bytes.fromhex("0488ade4")
     P2PKH_VERBYTE = bytes.fromhex("50")
