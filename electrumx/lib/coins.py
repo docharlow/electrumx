@@ -1895,8 +1895,6 @@ class Zumycoin(Coin):
     NAME = "Zumycoin"
     SHORTNAME = "ZMY"
     NET = "mainnet"
-    XPUB_VERBYTES = bytes.fromhex("0488b21e")
-    XPRV_VERBYTES = bytes.fromhex("0488ade4")
     P2PKH_VERBYTE = bytes.fromhex("50")
     P2SH_VERBYTES = [bytes.fromhex("0A")]
     WIF_BYTE = bytes.fromhex("8C")
@@ -1907,28 +1905,11 @@ class Zumycoin(Coin):
     TX_COUNT_HEIGHT = 32271	
     TX_PER_BLOCK = 4
     RPC_PORT = 31051
-    SESSIONCLS = DashElectrumX
-    DAEMON = daemon.DashDaemon
-
-class HZumycoin(Coin):
-    NAME = "HZumycoin"
-    SHORTNAME = "ZMY"
-    NET = "mainnet"
-    XPUB_VERBYTES = bytes.fromhex("0488b21e")
-    XPRV_VERBYTES = bytes.fromhex("0488ade4")
-    P2PKH_VERBYTE = bytes.fromhex("50")
-    P2SH_VERBYTES = [bytes.fromhex("0A")]
-    WIF_BYTE = bytes.fromhex("8C")
-    GENESIS_HASH = ('77da32d0318b5045ee3e13242ddadb65'
-                    'd0cfb529757d3e9128f1dae2c71f0d9e')
-    DESERIALIZER = lib_tx.DeserializerSegWit
-    TX_COUNT = 32271
-    TX_COUNT_HEIGHT = 32271	
-    TX_PER_BLOCK = 4
-    RPC_PORT = 31051
-    SESSIONCLS = DashElectrumX
-    DAEMON = daemon.DashDaemon	
 	
+    @classmethod
+    def header_hash(cls, header):
+        import argon2d_hash
+        return argon2d_hash.getPoWHash(header)
 
 
 class BitcoinAtom(Coin):
