@@ -36,9 +36,13 @@ class Env(EnvBase):
         self.db_dir = self.required('DB_DIRECTORY')
         self.db_engine = self.default('DB_ENGINE', 'leveldb')
         self.daemon_url = self.required('DAEMON_URL')
-        coin_name = 'Zumycoin'
-        network = 'mainnet'
-        self.coin = Coin.lookup_coin_class(coin_name, network)		
+        if coin is not None:
+            assert issubclass(coin, Coin)
+            self.coin = coin
+        else:
+            coin_name = self.required('COIN').strip()
+            network = self.default('NET', 'mainnet').strip()
+            self.coin = Coin.lookup_coin_class(coin_name, network)
         self.cache_MB = self.integer('CACHE_MB', 1200)
         self.host = self.default('HOST', 'localhost')
         self.reorg_limit = self.integer('REORG_LIMIT', self.coin.REORG_LIMIT)
@@ -71,6 +75,7 @@ class Env(EnvBase):
         self.bandwidth_limit = self.integer('BANDWIDTH_LIMIT', 2000000)
         self.session_timeout = self.integer('SESSION_TIMEOUT', 600)
         self.drop_client = self.custom("DROP_CLIENT", None, re.compile)
+        self.blacklist_url = self.default('BLACKLIST_URL', self.coin.BLACKLIST_URL)
 
         # Identities
         clearnet_identity = self.clearnet_identity()
