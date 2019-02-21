@@ -1911,8 +1911,8 @@ class Zumycoin(Coin):
         import argon2d_hash
         return argon2d_hash.getPoWHash(header)
 		
-class Zumycoin1(Coin):
-    NAME = "Zumycoin1"
+class AZumycoina(Coin):
+    NAME = "AZumycoina"
     SHORTNAME = "ZMY"
     NET = "mainnet"
     P2PKH_VERBYTE = bytes.fromhex("50")
