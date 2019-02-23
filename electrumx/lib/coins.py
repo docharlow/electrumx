@@ -1910,27 +1910,6 @@ class Zumycoin(Coin):
     def header_hash(cls, header):
         import argon2d_hash
         return argon2d_hash.getPoWHash(header)
-		
-class AZumycoina(Coin):
-    NAME = "AZumycoina"
-    SHORTNAME = "ZMY"
-    NET = "mainnet"
-    P2PKH_VERBYTE = bytes.fromhex("50")
-    P2SH_VERBYTES = [bytes.fromhex("0A")]
-    WIF_BYTE = bytes.fromhex("8C")
-    GENESIS_HASH = ('544d567064c18203e23da9088bb48ea'
-                    'dde5e22e61b291660f45a5f33c2220492')
-
-    DESERIALIZER = lib_tx.DeserializerSegWit
-    TX_COUNT = 32271
-    TX_COUNT_HEIGHT = 32271	
-    TX_PER_BLOCK = 4
-    RPC_PORT = 31051
-	
-    @classmethod
-    def header_hash(cls, header):
-        import argon2d_hash
-        return argon2d_hash.getPoWHash(header)		
 
 
 class BitcoinAtom(Coin):
